@@ -9,7 +9,7 @@ API.interceptors.response.use(
   error => error,
 );
 
-const getSurahDetail = (surahNumber: number) =>
-  API.get(`/surah/${surahNumber}/ar.alafasy`);
+const getSurahDetail = (surahNumber: number, edition: string) =>
+  API.get(`/surah/${surahNumber}/${edition}`);
 
 export {getSurahDetail};

@@ -1,9 +1,17 @@
 import React from 'react';
-import {View, Text, StyleSheet, ImageBackground} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  ImageBackground,
+  TouchableOpacity,
+} from 'react-native';
 import theme from '../../../theme';
-import {Ellipse, Bismillah} from '../../../assets/svg';
+import {Bismillah, Ellipse} from '../../../assets/svg';
 
 interface Props {
+  togglePlayAll: () => void;
+  isPlayAll: boolean;
   data: {
     name: string;
     number: number;
@@ -14,7 +22,11 @@ interface Props {
   };
 }
 
-const SurahDetail: React.FC<Props> = ({data}: Props) => {
+const SurahDetail: React.FC<Props> = ({
+  togglePlayAll,
+  isPlayAll,
+  data,
+}: Props) => {
   return (
     <View style={styles.container}>
       <ImageBackground
@@ -38,7 +50,20 @@ const SurahDetail: React.FC<Props> = ({data}: Props) => {
               <Text style={styles.informationText}>VERSES</Text>
             </View>
           </View>
-          <Bismillah />
+          <View style={styles.bottom}>
+            <TouchableOpacity
+              activeOpacity={0.8}
+              onPress={() => togglePlayAll()}>
+              <View style={styles.playContainer}>
+                {isPlayAll ? (
+                  <Text style={styles.playText}>STOP</Text>
+                ) : (
+                  <Text style={styles.playText}>PLAY</Text>
+                )}
+              </View>
+            </TouchableOpacity>
+            <Bismillah />
+          </View>
         </View>
       </ImageBackground>
     </View>
@@ -50,7 +75,7 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   imageBackground: {
-    padding: 30,
+    padding: 20,
     height: 275,
   },
   informationContainer: {
@@ -79,13 +104,13 @@ const styles = StyleSheet.create({
     backgroundColor: theme.color.white,
     height: 0.5,
     width: 165,
-    marginTop: 20,
+    marginTop: 10,
   },
   information: {
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: 20,
+    marginTop: 10,
   },
   informationText: {
     color: theme.color.white,
@@ -95,6 +120,33 @@ const styles = StyleSheet.create({
   },
   ellipse: {
     marginRight: 5,
+  },
+  bottom: {
+    display: 'flex',
+    alignItems: 'center',
+  },
+  playContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 30,
+    // paddingHorizontal: 15,
+    width: 65,
+    height: 30,
+    justifyContent: 'center',
+    backgroundColor: theme.color.white,
+    borderRadius: 8,
+  },
+  playText: {
+    color: theme.color.darkText,
+    fontFamily: theme.font.bold,
+  },
+  iconCircle: {
+    borderWidth: 2,
+    width: 17,
+    height: 17,
+    borderColor: theme.color.darkText,
+    borderRadius: 3,
   },
 });
 

@@ -5,6 +5,11 @@ import ReadMeIcon from './read-me-icon.svg';
 import Ellipse from './ellipse.svg';
 import BackIcon from './back-icon.svg';
 import Bismillah from './bismillah.svg';
+import BookmarkIcon from './bookmark-icon.svg';
+import ShareIcon from './share-icon.svg';
+import PlayIcon from './play-icon.svg';
+import PlayIconWhite from './play-icon-white.svg';
+import PlayIconDark from './play-icon-dark.svg';
 
 export {
   QuranSplash,
@@ -14,4 +19,9 @@ export {
   Ellipse,
   BackIcon,
   Bismillah,
+  BookmarkIcon,
+  ShareIcon,
+  PlayIcon,
+  PlayIconWhite,
+  PlayIconDark,
 };
