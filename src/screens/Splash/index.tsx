@@ -10,8 +10,8 @@ const Splash: React.FC<{
   useEffect(() => {
     setTimeout(() => {
       navigation.replace('Menu');
-    }, 3000);
-  });
+    }, 1000);
+  }, []);
 
   return (
     // <SafeAreaView>

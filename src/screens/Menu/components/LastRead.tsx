@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   },
   imageBackground: {
     padding: 25,
-    height: 135,
+    height: 140,
   },
   informationContainer: {
     height: '100%',

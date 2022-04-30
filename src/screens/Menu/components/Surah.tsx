@@ -23,7 +23,7 @@ interface Props {
 
 const Surah: React.FC<Props> = ({surah, navigation}: Props) => {
   const onPress = () => {
-    navigation.navigate('Surah', {surahNumber: surah.number});
+    navigation.navigate('Surah', surah);
   };
 
   return (
