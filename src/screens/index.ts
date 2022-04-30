@@ -1,3 +1,4 @@
 import Splash from './Splash';
+import Menu from './Menu';
 
-export {Splash};
+export {Splash, Menu};

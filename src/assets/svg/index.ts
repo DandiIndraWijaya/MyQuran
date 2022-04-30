@@ -1,3 +1,6 @@
 import QuranSplash from './quran-splash.svg';
+import SidebarIcon from './sidebar-icon.svg';
+import SearchIcon from './search-icon.svg';
+import ReadMeIcon from './read-me-icon.svg';
 
-export {QuranSplash};
+export {QuranSplash, SidebarIcon, SearchIcon, ReadMeIcon};
