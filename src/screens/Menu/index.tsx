@@ -11,7 +11,9 @@ import Surah from './components/Surah';
 
 const SCREEN_HEIGHT = Dimensions.get('window').height;
 
-const Menu: React.FC = () => {
+const Menu: React.FC<{
+  navigation: any;
+}> = ({navigation}) => {
   return (
     <View style={styles.root}>
       <View>
@@ -27,7 +29,7 @@ const Menu: React.FC = () => {
         <ScrollView>
           {surahList.map((surah, key) => (
             <View key={key}>
-              <Surah surah={surah} />
+              <Surah surah={surah} navigation={navigation} />
             </View>
           ))}
         </ScrollView>
@@ -45,13 +47,13 @@ const styles = StyleSheet.create({
     height: SCREEN_HEIGHT,
   },
   welcome: {
-    marginTop: 40,
+    marginTop: 30,
   },
   lastRead: {
-    marginTop: 30,
+    marginTop: 20,
   },
   surahList: {
-    marginTop: 30,
-    height: SCREEN_HEIGHT - 400,
+    marginTop: 20,
+    height: SCREEN_HEIGHT - 370,
   },
 });

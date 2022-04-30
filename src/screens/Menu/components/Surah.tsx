@@ -1,9 +1,16 @@
 import React from 'react';
-import {View, Text, StyleSheet, ImageBackground} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  ImageBackground,
+  TouchableOpacity,
+} from 'react-native';
 import theme from '../../../theme';
 import {Ellipse} from '../../../assets/svg';
 
 interface Props {
+  navigation: any;
   surah: {
     name: string;
     number: number;
@@ -14,33 +21,39 @@ interface Props {
   };
 }
 
-const Surah: React.FC<Props> = ({surah}: Props) => {
+const Surah: React.FC<Props> = ({surah, navigation}: Props) => {
+  const onPress = () => {
+    navigation.navigate('Surah', {surahNumber: surah.number});
+  };
+
   return (
-    <View style={styles.item}>
-      <View style={styles.numberContainer}>
-        <ImageBackground
-          source={require('../../../assets/png/ayah-number.png')}
-          style={styles.numberBorder}>
-          <Text style={styles.numberText}>{surah.number}</Text>
-        </ImageBackground>
-      </View>
-      <View style={styles.informationContainer}>
-        <Text style={styles.surahText}>{surah.englishName}</Text>
-        <View style={styles.information}>
-          <Text style={styles.informationText}>
-            {surah.revelationType.toUpperCase()}
-          </Text>
-          <View style={styles.ellipse}>
-            <Ellipse />
+    <TouchableOpacity onPress={onPress} activeOpacity={0.8}>
+      <View style={styles.item}>
+        <View style={styles.numberContainer}>
+          <ImageBackground
+            source={require('../../../assets/png/ayah-number.png')}
+            style={styles.numberBorder}>
+            <Text style={styles.numberText}>{surah.number}</Text>
+          </ImageBackground>
+        </View>
+        <View style={styles.informationContainer}>
+          <Text style={styles.surahText}>{surah.englishName}</Text>
+          <View style={styles.information}>
+            <Text style={styles.informationText}>
+              {surah.revelationType.toUpperCase()}
+            </Text>
+            <View style={styles.ellipse}>
+              <Ellipse />
+            </View>
+            <Text style={styles.informationText}>{surah.numberOfAyahs}</Text>
+            <Text style={styles.informationText}>VERSES</Text>
           </View>
-          <Text style={styles.informationText}>{surah.numberOfAyahs}</Text>
-          <Text style={styles.informationText}>VERSES</Text>
+        </View>
+        <View>
+          <Text style={styles.arabSurahText}>{surah.name}</Text>
         </View>
       </View>
-      <View>
-        <Text style={styles.arabSurahText}>{surah.name}</Text>
-      </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
