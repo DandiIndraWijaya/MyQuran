@@ -48,7 +48,7 @@ const Ayah: React.FC<Props> = ({
         <View style={styles.iconContainer}>
           {isPlaying ? (
             <TouchableOpacity
-              onPress={() => pauseAudio(data.number)}
+              onPress={() => pauseAudio(index)}
               activeOpacity={0.8}>
               <View style={styles.iconCircle}>
                 <Text style={styles.verticalLine}>||</Text>
@@ -56,7 +56,7 @@ const Ayah: React.FC<Props> = ({
             </TouchableOpacity>
           ) : (
             <TouchableOpacity
-              onPress={() => resumeAudio(data.number)}
+              onPress={() => resumeAudio(index)}
               activeOpacity={0.8}>
               <PlayIcon />
             </TouchableOpacity>

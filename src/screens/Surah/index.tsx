@@ -97,7 +97,7 @@ const Surah: React.FC<Props> = ({navigation, route}: Props) => {
   };
 
   const resumeAudioFromAyahComponent = (index: number) => {
-    setPlayIndex(index - 1);
+    setPlayIndex(index);
     setIsPlayAll(true);
   };
 
