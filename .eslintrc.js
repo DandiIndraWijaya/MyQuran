@@ -8,9 +8,15 @@ module.exports = {
       files: ['*.ts', '*.tsx'],
       rules: {
         '@typescript-eslint/no-shadow': ['error'],
+        'react-hooks/exhaustive-deps': 'off',
         'no-shadow': 'off',
         'no-undef': 'off',
-        'prettier/prettier': 0,
+        'prettier/prettier': [
+          'error',
+          {
+            endOfLine: 'auto',
+          },
+        ],
       },
     },
   ],
